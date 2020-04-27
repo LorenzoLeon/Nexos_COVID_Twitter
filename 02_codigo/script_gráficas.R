@@ -79,13 +79,13 @@ ur <- ggplot(ats,
                   parse = T,
                   nudge_x = -0.2,
                   nudge_y = 3,
-                  size = 3)+
-  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d")+
+                  size = 5)+
+  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %I%p")+
   scale_colour_manual(values = c(brewer.pal(10, "Spectral"),
                                  "grey80"))+
-  labs(title = "Total de menciones acumuladas más importantes de cuentas de Twitter en debate sobre COVID-19",
-       subtitle = paste0("Menciones más importantes desde el ",
-                         format(last(ats$fecha), "%d de %B de %Y")),
+  labs(title = str_wrap("Total de menciones acumuladas más importantes de cuentas de Twitter en debate sobre COVID-19", 70),
+       subtitle = paste0("Menciones sumadas cada minuto; las 10 más importantes del",
+                         fectoprint, " de 2020"),
        caption = "Elaboración con datos de Twitter",
        colour = "Cuenta",
        x = "Tiempo",
@@ -97,7 +97,7 @@ ur <- ggplot(ats,
       legend.key.size = unit(1, "cm"),
       legend.title = element_text(size = 10),
       legend.text = element_text(size = 10),
-      axis.title.x = element_text(size = 15),
+      axis.title.x = element_text(size = 20),
       axis.text.y = element_text(size = 15),
       axis.text.x = element_text(angle = 90),
       legend.position="none")
@@ -167,13 +167,13 @@ ur <- ggplot(hashes,
                   parse = T,
                   nudge_x = -0.2,
                   nudge_y = 3,
-                  size = 3)+
-  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d")+
+                  size = 5)+
+  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %I%p")+
   scale_colour_manual(values = c(brewer.pal(10, "Spectral"),
                                  "grey80"))+
-  labs(title = "Total de hashtags acumulados más importantes en debate sobre COVID-19",
-       subtitle = paste0("Hashtags más importantes desde el ",
-                         format(last(hashes$fecha), "%d de %B de %Y")),
+  labs(title = str_wrap("Total de hashtags acumulados más importantes en debate sobre COVID-19",70),
+       subtitle = paste0("Hashtags sumados cada minuto; los 10 más importantes del ",
+                         fectoprint, " de 2020"),
        caption = "Elaboración con datos de Twitter",
        colour = "Hashtags",
        x = "Tiempo",
@@ -185,7 +185,7 @@ ur <- ggplot(hashes,
         legend.key.size = unit(1, "cm"),
         legend.title = element_text(size = 10),
         legend.text = element_text(size = 10),
-        axis.title.x = element_text(size = 15),
+        axis.title.x = element_text(size = 20),
         axis.text.y = element_text(size = 15),
         axis.text.x = element_text(angle = 90),
         legend.position="none")
@@ -235,7 +235,7 @@ ur <- ggplot(data = tweets_sum,
   geom_point() +
   scale_color_continuous(NULL, NULL, NULL)+
   scale_size(NULL, NULL, NULL)+
-  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d")+
+  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %I%p")+
   theme_ipsum(grid="Y") +
   labs(title=str_wrap(titulo, width = 80),
        subtitle = str_wrap(subtitulo, width = 80),
@@ -273,7 +273,6 @@ general_afinn <- readRDS( "01_datos/palabras_fecha.rds")%>%
 
 titulo <- "Análisis de sentimiento en tweets de COVID19"
 subtitulo1 <- "Cada círculo representa un día; el tamaño del círculo indica la cantidad de tweets encontrados por día. Una puntuación mayor a cero representa un sentimiento promedio positivo; una menor, un negativo."
-subtitulo <- "Cada círculo representa un día; el tamaño del círculo indica la cantidad de tweets encontrados por día. <br>Una puntuación mayor a cero representa un sentimiento promedio positivo; una menor, un negativo."
 
 ur <- ggplot(general_afinn ,
              aes(x = Fecha,
@@ -289,13 +288,13 @@ ur <- ggplot(general_afinn ,
   guides(color = F) +
   xlab("") + ylab("Puntuación")  +
   labs(title = str_wrap(titulo, width = 90),
-       subtitle= str_wrap(subtitulo1, width = 90),
+       subtitle= str_wrap(subtitulo1, width = 120),
        caption=caption1,
        x="Tiempo",
        y="Sentimiento") +
   theme_ipsum() +
-  theme(plot.title = element_text(size = 25),
-        plot.subtitle = element_text(size = 15),
+  theme(plot.title = element_text(size = 30),
+        plot.subtitle = element_text(size = 20),
         plot.caption = element_text(size = 12),
         legend.key.size = unit(1, "cm"),
         legend.title = element_text(size = 10),
