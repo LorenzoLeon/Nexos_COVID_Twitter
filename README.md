@@ -2,6 +2,8 @@
 
 En este repo se concentra el código, las gráficas y los datos que usamos Katia Guzmán y Lorenzo León para el artículo en Nexos en el que analizamos los tweets relacionados con el COVID-19 en México desde el 30 de marzo.
 
+Nótese que el diccionario de sentimiento sigue en desarrollo y por lo tanto no lo incluimos en su totalidad, sino solo una pequeña muestra del total de palabras.
+
 ## Linea de Tiempo de tweets
 
 ![linea de tiempo](https://github.com/LorenzoLeon/Nexos_COVID_Twitter/blob/master/03_graficas/linea_tiempo_tweets.png)
