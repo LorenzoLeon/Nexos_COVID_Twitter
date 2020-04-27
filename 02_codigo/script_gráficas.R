@@ -80,7 +80,7 @@ ur <- ggplot(ats,
                   nudge_x = -0.2,
                   nudge_y = 3,
                   size = 5)+
-  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %I%p")+
+  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %H:00")+
   scale_colour_manual(values = c(brewer.pal(10, "Spectral"),
                                  "grey80"))+
   labs(title = str_wrap("Total de menciones acumuladas más importantes de cuentas de Twitter en debate sobre COVID-19", 70),
@@ -168,7 +168,7 @@ ur <- ggplot(hashes,
                   nudge_x = -0.2,
                   nudge_y = 3,
                   size = 5)+
-  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %I%p")+
+  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %H:00")+
   scale_colour_manual(values = c(brewer.pal(10, "Spectral"),
                                  "grey80"))+
   labs(title = str_wrap("Total de hashtags acumulados más importantes en debate sobre COVID-19",70),
@@ -235,7 +235,7 @@ ur <- ggplot(data = tweets_sum,
   geom_point() +
   scale_color_continuous(NULL, NULL, NULL)+
   scale_size(NULL, NULL, NULL)+
-  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %I%p")+
+  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %H:00")+
   theme_ipsum(grid="Y") +
   labs(title=str_wrap(titulo, width = 80),
        subtitle = str_wrap(subtitulo, width = 80),
@@ -281,7 +281,7 @@ ur <- ggplot(general_afinn ,
                  size=`Número de tweets`)) +
   geom_smooth(method="loess", show.legend = F, colour="black") +
   geom_point()+ 
-  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %I%p")+
+  scale_x_datetime(date_breaks = "1 day", date_labels =  "%b/%d %H:00")+
   scale_color_manual(values = c("#FC4E07", "grey",  "#00AFBB")) +
   scale_size_continuous("Sentimiento",
                         guide = guide_legend(override.aes = list(colour = "#E7B800"))) +
